@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 
-const Navbar = ({ setShowLogin }) => {
+const Navbar = ({ setShowLogin, chatbotRef  }) => {
   const [menu, setMenu] = useState("home");
 
   const { getTotalCartAmount, token, setToken, cartItems } = useContext(StoreContext);
@@ -13,6 +13,9 @@ const Navbar = ({ setShowLogin }) => {
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
+    if(chatbotRef?.current?.resetChat){
+      chatbotRef.current.resetChat();
+    }
     navigate("/");
   };
 

@@ -28,7 +28,7 @@ app.use("/api/user", userRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)
 app.use("/api/gemini", geminiRouter)
-app.use()
+
 
 app.get("/",(req,res)=>{
     res.send("API Working")
